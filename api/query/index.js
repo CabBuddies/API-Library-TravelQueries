@@ -31,7 +31,7 @@ async function listQueries(authToken){
 }
 
 async function readQuery(authToken,queryId){
-    const url = baseUrl+'/query/read?queryId'+queryId
+    const url = baseUrl+'/query/read?queryId='+queryId
     return await fetch(url, {
         method: 'get',
         headers: {
