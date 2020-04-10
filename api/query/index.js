@@ -43,8 +43,8 @@ async function readQuery(authToken,queryId){
 }
 
 
-async function updateQuery(authToken,title,body,tags){
-    const data = {title,body,tags}
+async function updateQuery(authToken,queryId,title,body,tags){
+    const data = {_id:queryId,title,body,tags}
     console.log('read '+JSON.stringify(data))
     const url = baseUrl+'/query/update'
     return await fetch(url, {
