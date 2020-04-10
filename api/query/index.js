@@ -42,4 +42,35 @@ async function readQuery(authToken,queryId){
       })
 }
 
-module.exports = {createQuery,listQueries,readQuery}
+
+async function updateQuery(authToken,title,body,tags){
+    const data = {title,body,tags}
+    console.log('read '+JSON.stringify(data))
+    const url = baseUrl+'/query/update'
+    return await fetch(url, {
+        method: 'put',
+        headers: {
+            'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
+            'Content-Type': 'application/json; charset=utf-8',
+            'Authorization':'Basic '+authToken
+          },
+        body: JSON.stringify(data)
+      })
+}
+
+async function activateQuery(authToken,queryId,active){
+    const data = {_id:queryId,active}
+    console.log('read '+JSON.stringify(data))
+    const url = baseUrl+'/query/activate'
+    return await fetch(url, {
+        method: 'put',
+        headers: {
+            'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
+            'Content-Type': 'application/json; charset=utf-8',
+            'Authorization':'Basic '+authToken
+          },
+        body: JSON.stringify(data)
+      })
+}
+
+module.exports = {createQuery,listQueries,readQuery,updateQuery,activateQuery}
