@@ -46,7 +46,7 @@ async function updateResponse(authToken,responseId,body){
     })
 }
 
-async function activateResponse(authToken,responseId,hidden){
+async function hideResponse(authToken,responseId,hidden){
   const data = {_id:responseId,hidden}
   console.log('read '+JSON.stringify(data))
   const url = baseUrl+'/response/hide'
@@ -62,4 +62,4 @@ async function activateResponse(authToken,responseId,hidden){
 }
 
 
-module.exports = {createResponse,readResponse,updateResponse,activateResponse}
+module.exports = {createResponse,readResponse,updateResponse,hideResponse}
