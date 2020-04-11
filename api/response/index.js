@@ -19,6 +19,18 @@ async function createResponse(authToken,queryId,body){
 }
 
 
+async function readResponse(authToken,responseId){
+  const url = baseUrl+'/response/read?responseId='+responseId
+  return await fetch(url, {
+      method: 'get',
+      headers: {
+          'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
+          'Content-Type': 'application/json; charset=utf-8',
+          'Authorization':'Basic '+authToken
+        }
+    })
+}
+
 async function updateResponse(authToken,responseId,body){
   const data = {_id:responseId,body}
   console.log('read '+JSON.stringify(data))
@@ -50,4 +62,4 @@ async function activateResponse(authToken,responseId,hidden){
 }
 
 
-module.exports = {createResponse,updateResponse,activateResponse}
+module.exports = {createResponse,readResponse,updateResponse,activateResponse}
