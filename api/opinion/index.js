@@ -6,7 +6,7 @@ const baseUrl = require('../../index').baseUrl;
 async function createOpinion(authToken,queryId,responseId,opinionType,body){
     const data = {query:queryId,response:responseId,opinionType,body}
     console.log('read '+JSON.stringify(data))
-    const url = baseUrl+'/comment/create'
+    const url = baseUrl+'/opinion/create'
     return await fetch(url, {
         method: 'post',
         headers: {
